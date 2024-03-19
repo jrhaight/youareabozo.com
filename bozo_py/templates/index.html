@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Are A Bozo</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #00FF00; text-align: center; padding: 20px; }
+        header { margin-bottom: 20px; }
+        footer { margin-top: 20px; }
+        img { max-width: 100%; height: auto; border: 5px dashed red; }
+        a {
+            background-color: #FF69B4; /* Hot pink */
+            color: yellow;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        a:hover {
+            background-color: #FF1493; /* Deep pink */
+        }
+        @keyframes blink {
+            50% { color: red; }
+        }
+        .bozoText {
+            font-size: 48px; /* Extra large text */
+            margin-top: 20px;
+            color: #0000FF; /* Bright blue */
+            background-color: yellow;
+            border: 3px dotted red;
+            padding: 10px;
+            font-weight: bold;
+            animation: blink 1s step-start 0s infinite;
+            -webkit-animation: blink 1s step-start 0s infinite;
+        }
+        marquee {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to YouAreABozo.com!</h1>
+<marquee behavior="alternate"><div class="bozoText">You are a bozo!</div></marquee> <!-- Enhanced 1990s vibe -->
+
+    <img src="/static/bozo.png" alt="Bozo Image" style="max-width:100%;height:auto;">
+    <marquee behavior="scroll"><div class="bozoText">You are a bozo!</div></marquee> <!-- Enhanced 1990s vibe -->
+
+    {% if latest_nominee %}
+        <h2>Latest Bozo Awardee: {{ latest_nominee.name }}</h2>
+        <p>First Nominated On: {{ latest_nominee.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    {% else %}
+        <p>No nominees yet!</p>
+    {% endif %}
+    <a href="/nominate">Nominate a Bozo</a>
+    <a href="/past_awardees">View Past Awardees</a>
+</body>
+</html>

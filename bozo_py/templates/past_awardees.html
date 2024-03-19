@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Past Awardees | Bozo Nominator</title>
+</head>
+<body>
+    <h1>Past Bozo Awardees</h1>
+    {% for nominee in nominees %}
+        <p>{{ nominee.name }} - Nominated on {{ nominee.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    {% endfor %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
